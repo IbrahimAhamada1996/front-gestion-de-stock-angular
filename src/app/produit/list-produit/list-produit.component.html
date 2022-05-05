@@ -1,0 +1,45 @@
+<div class="container custom-container-2">
+    <!-- Show it when there is no employee -->
+    <div class="no-data text-center" >
+      <h3 class="mb-3 text-center">Produit List</h3>
+      <button class="btn btn-outline-primary" routerLink="/produit/add">
+        Add Produit
+      </button>
+    </div>
+    <!-- Employees list table, it hides when there is no employee -->
+    <div >
+
+      <div class="col-md-12">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Produit Id</th>
+              <th scope="col">Nom</th>
+              <th scope="col">Prix</th>
+              <th scope="col">Description</th>
+              <th scope="col">Categorie</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr *ngFor="let produit of produits">
+              <td>{{ produit.id }}</td>
+              <td>{{ produit.nom }}</td>
+              <td>{{ produit.prix }}</td>
+              <td>{{ produit.description }}</td>
+              <td>{{ produitCategorie(produit.id).libelle | json}}</td>
+              <td>
+                <button class="btn btn-success" routerLink="/produit/edite/{{ produit.id }}"
+                  >Edit</button>
+                <button class="btn btn-danger" (click)="deleteProduit(produit.id)"
+                  >Delete</button
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+

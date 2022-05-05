@@ -1,0 +1,27 @@
+<div class="container custom-container">
+    <div class="col-md-12">
+      <h3 class="mb-3 text-center">Update Produit</h3>
+      <form #f="ngForm" (click)="editeProduit(f)" >
+        <div class="form-group">
+          <input type="text" name="nom" value="{{produit?.nom}}" ngModel class="form-control" placeholder="Nom du produit">
+        </div>
+        <div class="form-group">
+            <input type="text" name="description" value="{{produit?.description}}" ngModel class="form-control" placeholder="La description">
+        </div>
+        <div class="form-group">
+            <input type="number" name="prix" value="{{produit?.prix}}" ngModel class="form-control" placeholder="Le prix">
+        </div>
+        <div class="form-group">
+           <input type="number" list="categories" name = "categorieId" ngModel id="categorieId">
+          <datalist id="categories">
+            <option *ngFor="let item of  categories" value={{item.id}}>{{item.libelle}}</option>
+          </datalist>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-success btn-lg btn-block" >Update Produit</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
